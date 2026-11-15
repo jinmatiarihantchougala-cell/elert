@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Police Dashboard | Silent SOS</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="police.html"><span class="brand-mark">SOS</span><span class="brand-name">SILENT SOS</span></a>
+    <nav class="nav-links"><a class="active" href="police.html">Police dashboard</a><button id="logoutBtn">Logout</button></nav>
+  </header>
+  <main class="shell">
+    <div class="card-header"><div><p class="muted" style="margin:0 0 4px">Authorized responder view</p><h1 style="margin:0">Emergency response</h1></div><p class="muted" id="refreshStatus" aria-live="polite">Loading active alerts...</p></div>
+    <div class="grid grid-3">
+      <article class="card"><span class="muted">Active emergencies</span><div class="stat-value" id="activeCount">—</div></article>
+      <article class="card"><span class="muted">Acknowledged emergencies</span><div class="stat-value" id="acknowledgedCount">—</div></article>
+      <article class="card"><span class="muted">Resolved emergencies</span><div class="stat-value" id="resolvedCount">—</div></article>
+    </div>
+    <section class="card" style="margin-top:18px">
+      <div class="card-header"><div><h2>Reported location</h2><p class="muted" id="mapLocationStatus" style="margin:6px 0 0">Waiting for alerts...</p></div><div class="field"><label for="mapAlertSelect">Select alert</label><select id="mapAlertSelect" aria-label="Select alert to view on map"></select></div></div>
+      <iframe id="policeMap" class="map-frame hidden" title="Selected emergency location map" loading="lazy" referrerpolicy="no-referrer"></iframe>
+      <p><a id="openPoliceMap" class="btn btn-ghost small hidden" target="_blank" rel="noopener noreferrer">Open location in Google Maps</a></p>
+    </section>
+    <section class="card" style="margin-top:18px">
+      <div class="card-header"><h2>Emergency alerts</h2><span class="muted">Refreshes automatically</span></div>
+      <div class="table-wrap" id="policeAlerts" aria-live="polite"><p class="muted">Loading alerts...</p></div>
+    </section>
+  </main>
+  <script src="js/api.js"></script><script src="js/police.js"></script>
+</body>
+</html>

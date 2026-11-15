@@ -1,0 +1,11 @@
+const router = require('express').Router();
+const auth = require('../middleware/authMiddleware');
+const user = require('../middleware/userMiddleware');
+const controller = require('../controllers/alertController');
+router.use(auth, user);
+router.post('/trigger', controller.trigger);
+router.get('/', controller.list);
+router.get('/:id', controller.getOne);
+router.put('/:id/resolve', controller.resolve);
+router.post('/:id/location', controller.updateLocation);
+module.exports = router;
